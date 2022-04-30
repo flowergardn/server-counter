@@ -2,6 +2,7 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Head from "next/head";
+import Footer from "./Components/Footer";
 
 export default function Home() {
   const [token, setToken] = useState("");
@@ -97,6 +98,7 @@ export default function Home() {
         <title>Server counter</title>
       </Head>
       {token === "" ? loggedOut() : loggedIn()}
+      <Footer />
     </>
   );
 }
