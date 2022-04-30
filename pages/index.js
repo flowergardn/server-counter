@@ -39,39 +39,43 @@ export default function Home() {
     }
   }, [servers]);
 
-  function loggedIn() {
+  function Page(props) {
     return (
       <>
         <div className={"flex align-center justify-center mt-[5rem]"}>
-          <div className={"flex flex-col items-center"}>
-            <h1 className={"text-3xl text-white"}>
-              You are in {servers.length} servers!
-            </h1>
-          </div>
+          <div className={"flex flex-col items-center"}>{props.children}</div>
         </div>
       </>
     );
   }
 
+  function loggedIn() {
+    return (
+      <Page>
+        <h1 className={"text-3xl text-white"}>
+          You are in {servers.length} servers!
+        </h1>
+      </Page>
+    );
+  }
+
   function loggedOut() {
     return (
-      <div className={"flex align-center justify-center mt-[5rem]"}>
-        <div className={"flex flex-col items-center"}>
-          <h1 className={"text-3xl text-white"}>
-            You are currently not logged in
-          </h1>
-          <h1 className={"text-1xl text-white mt-5"}>
-            Click{" "}
-            <a
-              href={"/api/login"}
-              className={"text-indigo-400 hover:text-indigo-500"}
-            >
-              here
-            </a>{" "}
-            to login with Discord
-          </h1>
-        </div>
-      </div>
+      <Page>
+        <h1 className={"text-3xl text-white"}>
+          You are currently not logged in
+        </h1>
+        <h1 className={"text-1xl text-white mt-5"}>
+          Click{" "}
+          <a
+            href={"/api/login"}
+            className={"text-indigo-400 hover:text-indigo-500"}
+          >
+            here
+          </a>{" "}
+          to login with Discord
+        </h1>
+      </Page>
     );
   }
 
