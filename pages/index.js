@@ -53,7 +53,25 @@ export default function Home() {
   }
 
   function loggedOut() {
-    return <p>logged out</p>;
+    return (
+      <div className={"flex align-center justify-center mt-[5rem]"}>
+        <div className={"flex flex-col items-center"}>
+          <h1 className={"text-3xl text-white"}>
+            You are currently not logged in
+          </h1>
+          <h1 className={"text-1xl text-white mt-5"}>
+            Click{" "}
+            <a
+              href={"/api/login"}
+              className={"text-indigo-400 hover:text-indigo-500"}
+            >
+              here
+            </a>{" "}
+            to login with Discord
+          </h1>
+        </div>
+      </div>
+    );
   }
 
   return token === "" ? loggedOut() : loggedIn();
