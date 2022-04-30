@@ -86,6 +86,10 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="theme-color" content="#1F2937" />
         <meta property="og:title" content={"Discord server counter"} />
+        <meta
+          name="og:description"
+          content="A web app to count all the servers you're in!"
+        />
         <title>Server counter</title>
       </Head>
       {token === "" ? loggedOut() : loggedIn()}
