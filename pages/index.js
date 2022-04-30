@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Head } from "next/document";
+import Head from "next/head";
 
 export default function Home() {
   const [token, setToken] = useState("");
