@@ -1,6 +1,7 @@
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Head } from "next/document";
 
 export default function Home() {
   const [token, setToken] = useState("");
@@ -74,5 +75,20 @@ export default function Home() {
     );
   }
 
-  return token === "" ? loggedOut() : loggedIn();
+  return (
+    <>
+      <Head>
+        <meta
+          name="description"
+          content="A web app to count all the servers you're in!"
+        />
+        <meta property="og:url" content="server-counter.vercel.app" />
+        <meta property="og:type" content="website" />
+        <meta property="theme-color" content="#1F2937" />
+        <meta property="og:title" content={"Discord server counter"} />
+        <title>Server counter</title>
+      </Head>
+      {token === "" ? loggedOut() : loggedIn()}
+    </>
+  );
 }
